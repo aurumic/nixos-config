@@ -4,12 +4,17 @@
 
 { config, pkgs, inputs, ... }:
 
+
+# let 
+#   home_dir = config.home-manager.users.utsurei.home.homeDirectory;
+# in 
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      inputs.home-manager.nixosModules.default
+      # inputs.home-manager.nixosModules.home-manager
     ];
+
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -96,22 +101,20 @@
     packages = with pkgs; [];
   };
 
-  home-manager = {
-    extraSpecialArgs = { inherit inputs; };
-    users = {
-      "utsurei" = import ./home.nix;
-    };
-  };
+  # home-manager = {
+  #   extraSpecialArgs = { inherit inputs; };
+  #   users = {
+  #     "utsurei" = import ./home.nix;
+  #   };
+  # };
 
   # Install firefox.
   programs.firefox.enable = true;
   
   programs.git.enable = true;
   programs.neovim.enable = true;
-  
-  programs.steam.enable = true;
 
-  services.flatpak.enable = true;
+  programs.steam.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -120,6 +123,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     vscode
+    libreoffice-qt
     gh
   ];
 
@@ -153,6 +157,12 @@
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
+
+  # nix.nixPath = [
+  #   "nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos"
+  #   "nixos-config=${home_dir}/.config/nixos/hosts/${config.networking.hostName}/configuration.nix"
+  #   "/nix/var/nix/profiles/per-user/root/channels"
+  # ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
