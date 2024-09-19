@@ -15,6 +15,12 @@
       # inputs.home-manager.nixosModules.home-manager
     ];
 
+  home-manager = {
+    extraSpecialArgs = { inherit inputs; };
+    users = {
+      "utsurei" = import ./home.nix;
+    };
+  };
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -38,18 +44,18 @@
   time.timeZone = "Europe/Kyiv";
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
+  i18n.defaultLocale = "C.UTF-8";
 
   i18n.extraLocaleSettings = {
-    LC_ADDRESS = "uk_UA.UTF-8";
-    LC_IDENTIFICATION = "uk_UA.UTF-8";
-    LC_MEASUREMENT = "uk_UA.UTF-8";
-    LC_MONETARY = "uk_UA.UTF-8";
-    LC_NAME = "uk_UA.UTF-8";
-    LC_NUMERIC = "uk_UA.UTF-8";
-    LC_PAPER = "uk_UA.UTF-8";
-    LC_TELEPHONE = "uk_UA.UTF-8";
-    LC_TIME = "uk_UA.UTF-8";
+    LC_ADDRESS = "C.UTF-8";
+    LC_IDENTIFICATION = "C.UTF-8";
+    LC_MEASUREMENT = "C.UTF-8";
+    LC_MONETARY = "en_US.UTF-8";
+    LC_NAME = "C.UTF-8";
+    LC_NUMERIC = "en_NZ.UTF-8";
+    LC_PAPER = "C.UTF-8";
+    LC_TELEPHONE = "C.UTF-8";
+    LC_TIME = "en_NZ.UTF-8";
   };
 
   # Enable the X11 windowing system.
@@ -83,7 +89,7 @@
     alsa.support32Bit = true;
     pulse.enable = true;
     # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
+    jack.enable = true;
 
     # use the example session manager (no others are packaged yet so this is enabled by default,
     # no need to redefine it in your config for now)
@@ -91,7 +97,7 @@
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
+  services.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.utsurei = {
@@ -101,18 +107,10 @@
     packages = with pkgs; [];
   };
 
-  # home-manager = {
-  #   extraSpecialArgs = { inherit inputs; };
-  #   users = {
-  #     "utsurei" = import ./home.nix;
-  #   };
-  # };
-
   # Install firefox.
   programs.firefox.enable = true;
   
   programs.git.enable = true;
-  programs.neovim.enable = true;
 
   programs.steam.enable = true;
 
@@ -123,7 +121,6 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     vscode
-    libreoffice-qt
     gh
   ];
 

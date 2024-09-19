@@ -18,9 +18,9 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
 
-
   home.packages = with pkgs; [
-
+    libreoffice-qt
+    telegram-desktop
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
@@ -75,5 +75,23 @@
   };
 
   # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
+  programs = {
+    home-manager.enable = true;
+
+    git = {
+      enable = true;
+      userName = "aurumic";
+      userEmail = "zarlophoenix@gmail.com";
+    };
+
+    direnv = {
+      enable = true;
+      enableBashIntegration = true;
+      nix-direnv.enable = true;
+    };
+
+    neovim.enable = true;
+
+    bash.enable = true;
+  };
 }
