@@ -2,6 +2,7 @@
 
 {
   home.packages = with pkgs; [
+    inter
     open-sans
     noto-fonts
     noto-fonts-cjk
@@ -9,9 +10,6 @@
     liberation_ttf
     fira-code
     fira-code-symbols
-    mplus-outline-fonts.githubRelease
-    dina-font
-    proggyfonts
-    (nerdfonts.override { fonts = [ "FiraCode" "Mononoki" "Hasklug" ]; })
+    (nerdfonts.override { fonts = [ "FiraCode" "Mononoki" "Hasklig" ]; })
   ];
 }

@@ -7,7 +7,8 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ./../../modules/nixos/default.nix
+    ./../../modules/system/bootloader.nix
+    ./../../modules/nixos
   ];
 
   home-manager = {
@@ -16,10 +17,6 @@
       "utsurei" = import ./home.nix;
     };
   };
-
-  # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
 
   boot.kernelParams = [ "i915.force_probe=7d55" ];
 

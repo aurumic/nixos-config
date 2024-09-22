@@ -2,8 +2,8 @@
 
 {
   imports = [
-    ./../../modules/home-manager/default.nix
     ./../../modules/home-manager/fonts.nix
+    ./../../modules/home-manager
   ];
 
   home.username = "utsurei";
