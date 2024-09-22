@@ -25,7 +25,7 @@
   networking.hostName = "whitenight";
   networking.networkmanager.enable = true;
 
-  # boot.kernelParams = [ "i915.force_probe=7d55" ];
+  boot.kernelParams = [ "i915.force_probe=7d55" ];
 
   # services.xserver.enable = false;
   # services.xserver.videoDrivers = [ "modesetting" ];
