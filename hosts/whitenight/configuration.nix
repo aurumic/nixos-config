@@ -8,7 +8,7 @@
     ./../../modules/nixos
   ];
 
-  utsurei = {
+  users.users.utsurei = {
     isNormalUser = true;
     extraGroups = [ "networkmanager" "wheel" ];
     shell = pkgs.fish;
@@ -42,7 +42,7 @@
   };
 
   programs.steam.enable = true;
-  
+
   environment.systemPackages = with pkgs; [];
 
   system.stateVersion = "24.05";

@@ -9,6 +9,8 @@
   home.username = "utsurei";
   home.homeDirectory = "/home/utsurei";
 
+  nixpkgs.config.allowUnfree = true;
+
   programs.firefox.enable = true;
   programs.bash.enable = true;
 
