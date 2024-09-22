@@ -1,9 +1,9 @@
-{ config, pkgs, inputs, ... }:
+{ lib, config, pkgs, inputs, ... }:
 
 {
-  # imports = [
-  #   (modulesPath + "/home-manager/fish.nix")
-  # ];
+  imports = [
+    ./../../modules/home-manager/default.nix
+  ];
 
   home.username = "utsurei";
   home.homeDirectory = "/home/utsurei";
@@ -11,10 +11,17 @@
   nixpkgs.config.allowUnfree = true;
 
   home.packages = with pkgs; [
+    gh
     vscode
     libreoffice-qt
     telegram-desktop
   ];
+
+  programs = {
+    firefox.enable = true;
+
+    bash.enable = true;
+  };
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
@@ -28,22 +35,4 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;    
-
-  programs = {
-    git = {
-      enable = true;
-      userName = "aurumic";
-      userEmail = "zarlophoenix@gmail.com";
-    };
-
-    direnv = {
-      enable = true;
-      # enableFishIntegration = true;
-      nix-direnv.enable = true;
-    };
-
-    neovim.enable = true;
-
-    bash.enable = true;
-  };
 }
