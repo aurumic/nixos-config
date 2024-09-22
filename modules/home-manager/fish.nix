@@ -11,12 +11,11 @@
       interactiveShellInit = ''
         set fish_greeting # Disable greeting
       '';
-      plugins = with pkgs.fishPlugins; [
-        z
-        fzf-fish
-        grc
-        tide
-        gruvbox
+      plugins = [
+        { name = "z"; src = pkgs.fishPlugins.z.src; }
+        { name = "fzf-fish"; src = pkgs.fishPlugins.fzf-fish.src; }
+        { name = "grc"; src = pkgs.fishPlugins.grc.src; }
+        { name = "tide"; src = pkgs.fishPlugins.tide.src; } 
       ];
     };
   };

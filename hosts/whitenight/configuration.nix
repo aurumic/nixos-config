@@ -7,7 +7,7 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ./../../modules/home-manager/default.nix
+    ./../../modules/nixos/default.nix
   ];
 
   home-manager = {
@@ -95,6 +95,7 @@
     description = "utsurei";
     extraGroups = [ "networkmanager" "wheel" ];
     shell = pkgs.fish;
+    ignoreShellProgramCheck = true;
     packages = with pkgs; []; 
   };
 
@@ -106,9 +107,7 @@
     steam.enable = true;
   };
 
-  environment.systemPackages = with pkgs; [
-    wl-clipboard
-  ];
+  environment.systemPackages = with pkgs; [];
 
   system.stateVersion = "24.05";
 }

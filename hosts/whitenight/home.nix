@@ -3,6 +3,7 @@
 {
   imports = [
     ./../../modules/home-manager/default.nix
+    ./../../modules/home-manager/fonts.nix
   ];
 
   home.username = "utsurei";
@@ -11,6 +12,10 @@
   nixpkgs.config.allowUnfree = true;
 
   home.packages = with pkgs; [
+    fzf
+    neofetch
+    grc
+    eza
     gh
     vscode
     libreoffice-qt

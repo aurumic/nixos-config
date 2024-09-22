@@ -2,7 +2,7 @@
 
 {
   options = {
-    waydroid.enable = lib.mkEnableOption;
+    waydroid.enable = lib.mkEnableOption "enable waydroid";
   };
 
   config = lib.mkIf config.waydroid.enable {
