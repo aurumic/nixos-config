@@ -9,35 +9,26 @@
   home.username = "utsurei";
   home.homeDirectory = "/home/utsurei";
 
-  nixpkgs.config.allowUnfree = true;
+  programs.firefox.enable = true;
+  programs.bash.enable = true;
 
   home.packages = with pkgs; [
     fzf
-    neofetch
     grc
     eza
     gh
     vscode
     libreoffice-qt
     telegram-desktop
+    neofetch
   ];
 
-  programs = {
-    firefox.enable = true;
-
-    bash.enable = true;
-  };
-
-  # Home Manager is pretty good at managing dotfiles. The primary way to manage
-  # plain files is through 'home.file'.
   home.file = {};
 
   home.sessionVariables = {
     EDITOR = "nvim";
   };
 
-  home.stateVersion = "24.05";
-
-  # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;    
+  programs.home-manager.enable = true;   
+  home.stateVersion = "24.05"; 
 }
