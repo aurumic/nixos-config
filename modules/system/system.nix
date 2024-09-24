@@ -10,7 +10,7 @@
 
   time.timeZone = "Europe/Kyiv";
   i18n.defaultLocale = "C.UTF-8";
-    i18n.extraLocaleSettings = {
+  i18n.extraLocaleSettings = {
     LC_ADDRESS = "C.UTF-8";
     LC_IDENTIFICATION = "C.UTF-8";
     LC_MEASUREMENT = "C.UTF-8";
