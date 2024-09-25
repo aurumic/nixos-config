@@ -43,7 +43,14 @@
 
   programs.steam.enable = true;
 
-  environment.systemPackages = with pkgs; [];
+  environment.systemPackages = with pkgs; [
+    python3
+  ];
+
+  environment.shellAliases = {
+    ls = "eza -a";
+    rebuild = "nixos-rebuild switch --flake";
+  };
 
   system.stateVersion = "24.05";
 }
