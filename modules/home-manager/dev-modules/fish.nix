@@ -11,6 +11,7 @@
       interactiveShellInit = ''
         set fish_greeting # Disable greeting
       '';
+      
       plugins = [
         { name = "z"; src = pkgs.fishPlugins.z.src; }
         { name = "fzf-fish"; src = pkgs.fishPlugins.fzf-fish.src; }

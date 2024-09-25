@@ -15,10 +15,6 @@
   programs.bash.enable = true;
 
   home.packages = with pkgs; [
-    fzf
-    grc
-    eza
-    gh
     vscode
     libreoffice-qt
     telegram-desktop
@@ -29,6 +25,11 @@
 
   home.sessionVariables = {
     EDITOR = "nvim";
+  };
+
+  environment.shellAliases = {
+    ls = "eza -a";
+    rebuild = "nixos-rebuild switch --flake"; 
   };
 
   programs.home-manager.enable = true;   

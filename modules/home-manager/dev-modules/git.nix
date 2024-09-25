@@ -12,6 +12,14 @@
 
       userName = "aurumic";
       userEmail = "zarlophoenix@gmail.com";
+
+      aliases = {
+        co = "checkout";
+        br = "branch";
+        st = "status";
+        qc = "!git add -A && git commit -m '$*'";
+        qcp = "!git add -A && git commit -m '$*' && git push";
+      };
     };
   };
 }
