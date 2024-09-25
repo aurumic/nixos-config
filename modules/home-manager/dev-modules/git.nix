@@ -3,6 +3,8 @@
 {
   options = {
     git.enable = lib.mkEnableOption "enable git";
+    git.userName = lib.mkOption { default = "aurumic"; };
+    git.userEmail = lib.mkOption { default = "zarlophoenix@gmail.com"; };
   };
 
   config = lib.mkIf config.git.enable {
@@ -10,15 +12,17 @@
       enable = true;
       lfs.enable = true;
 
-      userName = "aurumic";
-      userEmail = "zarlophoenix@gmail.com";
+      userName = "${config.git.userName}";
+      userEmail = "${config.git.userEmail}";
 
       aliases = {
         co = "checkout";
+        cb = "checkout -b";
         br = "branch";
+        sw = "switch";
         st = "status --short --branch";
-        qc = "!git add -A && git commit -m \"$*\";";
-        qcp = "!git add -A && git commit -m \"$*\"" && git push";
+        qc = "!git add -A && git commit -m \"$@\";";
+        qcp = "!git add -A && git commit -m \"$@\" && git push";
       };
     };
   };
