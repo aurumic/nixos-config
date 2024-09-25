@@ -22,7 +22,6 @@
         sw = "switch";
         st = "status --short --branch";
         qc = "!git add -A && git commit -m \"$@\";";
-        qcp = "!git add -A && git commit -m \"$@\" && git push";
       };
     };
   };
