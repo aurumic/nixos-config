@@ -2,9 +2,9 @@
 
 
 {
-  option = {
-    ruff.enable = lib.mkEnableOption "enable ruff"
-  }
+  options = {
+    ruff.enable = lib.mkEnableOption "enable ruff";
+  };
 
   config = lib.mkIf config.ruff.enable {
     programs.ruff = {
