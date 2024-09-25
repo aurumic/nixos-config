@@ -2,11 +2,11 @@
 
 {
   imports = [
-    ./dev-modules/git.nix
-    ./dev-modules/fish.nix
-    ./dev-modules/neovim.nix
-    ./dev-modules/ruff.nix
-    ./dev-modules/thefuck.nix
+    ./shell-modules/git.nix
+    ./shell-modules/fish.nix
+    ./shell-modules/neovim.nix
+    ./shell-modules/ruff.nix
+    ./shell-modules/thefuck.nix
   ];
 
   git.enable = lib.mkDefault true;
