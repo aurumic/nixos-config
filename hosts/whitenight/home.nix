@@ -27,7 +27,7 @@
     EDITOR = "nvim";
   };
 
-  environment.shellAliases = {
+  home.shellAliases = {
     ls = "eza -a";
     rebuild = "nixos-rebuild switch --flake"; 
   };
