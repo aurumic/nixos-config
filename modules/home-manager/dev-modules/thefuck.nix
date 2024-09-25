@@ -6,7 +6,7 @@
     thefuck.alias = lib.mkOption { default = "fuck"; };
   };
 
-  config = lib.mkif config.thefuck.enable {
+  config = lib.mkIf config.thefuck.enable {
     programs.thefuck = {
       enable = true;
       enableFishIntegration = true;
