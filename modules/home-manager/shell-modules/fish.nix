@@ -18,6 +18,13 @@
         { name = "grc"; src = pkgs.fishPlugins.grc.src; }
         { name = "tide"; src = pkgs.fishPlugins.tide.src; } 
       ];
+
+      shellAliases = {
+        c = "clear";
+        ls = "eza -a";
+        ll = "eza -al";
+        rebuild = "nixos-rebuild switch --flake"; 
+      };
     };
   };
 }

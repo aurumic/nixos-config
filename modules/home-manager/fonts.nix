@@ -10,6 +10,12 @@
     liberation_ttf
     fira-code
     fira-code-symbols
-    (nerdfonts.override { fonts = [ "FiraCode" "Mononoki" "Hasklig" ]; })
+    (nerdfonts.override { fonts = [ "FiraCode" "Mononoki" "Hasklig" "ProggyClean" "Terminus" ]; })
   ];
+
+  fonts.fontconfig.defaultFonts = {
+    serif = [ "Open Sans" ];
+    sansSerif = [ "Open Sans" ];
+    monospace = [ "Hasklug Nerd Font" ];
+  };
 }

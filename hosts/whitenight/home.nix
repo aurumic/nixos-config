@@ -27,11 +27,6 @@
     EDITOR = "nvim";
   };
 
-  home.shellAliases = {
-    ls = "eza -a";
-    rebuild = "nixos-rebuild switch --flake"; 
-  };
-
   programs.home-manager.enable = true;   
   home.stateVersion = "24.05"; 
 }
