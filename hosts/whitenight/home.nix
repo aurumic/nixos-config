@@ -15,16 +15,16 @@
   programs.bash.enable = true;
 
   home.packages = with pkgs; [
-    vscode
     libreoffice-qt
     telegram-desktop
-    neofetch
   ];
 
   home.file = {};
 
   home.sessionVariables = {
     EDITOR = "nvim";
+    BROWSER = "firefox";
+    TERMINAL = "kitty";
   };
 
   programs.home-manager.enable = true;   

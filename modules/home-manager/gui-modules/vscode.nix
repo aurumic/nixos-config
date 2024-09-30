@@ -9,18 +9,7 @@
     programs.vscode = {
       enable = true;
       enableUpdateCheck = false;
-      mutableExtensionsDir = true;
-
-      # extensions = with pkgs.vscode-extensions; [
-      #   jnoortheen.nix-ide
-      #   arrterian.nix-env-selector
-
-      #   ms-python.python
-      #   ms-python.black-formatter
-      #   batisteo.vscode-django
-
-      #   aaron-bond.better-comments
-      # ];
+      mutableExtensionsDir = true;    
     };
   };
 }
