@@ -8,8 +8,7 @@
   config = lib.mkIf config.vscode.enable {
     programs.vscode = {
       enable = true;
-      enableUpdateCheck = false;
-      mutableExtensionsDir = true;    
+      mutableExtensionsDir = true;
     };
   };
 }

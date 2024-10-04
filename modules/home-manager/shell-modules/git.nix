@@ -20,8 +20,12 @@
         cb = "checkout -b";
         br = "branch";
         sw = "switch";
+        rc = "revert";
         st = "status --short --branch";
-        qc = "!git add -A && git commit -m \"$@\";";
+        qc = "!f() { git add -A && git commit -m \"$1\"; }; f";
+        qcp = "!f() { git add -A && git commit -m \"$1\" && git push; }; f";
+        undo = "reset --soft HEAD~1";
+        squash = "rebase -i HEAD~";
       };
     };
   };
