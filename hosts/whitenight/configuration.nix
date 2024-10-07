@@ -45,6 +45,7 @@
 
   environment.systemPackages = with pkgs; [
     neofetch
+    devenv
     fzf
     grc
     eza
