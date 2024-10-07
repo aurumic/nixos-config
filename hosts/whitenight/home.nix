@@ -17,6 +17,7 @@
   home.packages = with pkgs; [
     libreoffice-qt
     telegram-desktop
+    devenv
   ];
 
   home.file = {};
