@@ -25,7 +25,7 @@
       undo = "reset --soft HEAD~1";
       squash = "rebase -i HEAD~";
     };
-
-    home.packages = [ pkgs.gh ];
   };
+
+  home.packages = [ pkgs.gh ];
 }

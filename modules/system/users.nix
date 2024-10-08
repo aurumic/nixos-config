@@ -1,10 +1,11 @@
 { pkgs, inputs, username, host, ...}:
 
 {
-  import = [
+  imports = [
     inputs.home-manager.nixosModules.home-manager
   ];
 
+  programs.fish.enable = true;
   users.users.${username} = {
     isNormalUser = true;
     extraGroups = [ "networkmanager" "wheel" ];

@@ -11,4 +11,8 @@
       allowedUDPPorts = [ ];
     };
   };
+
+  environment.systemPackages = with pkgs; [
+    networkmanagerapplet
+  ];
 }

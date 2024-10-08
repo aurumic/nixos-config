@@ -7,7 +7,7 @@
     themeFile = "GruvboxMaterialDarkMedium";
 
     font = { name = "Hasklug Nerd Font"; };
-    font.size = 16;
+    font.size = 12;
 
     shellIntegration = {
       enableFishIntegration = true;
