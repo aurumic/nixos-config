@@ -18,7 +18,7 @@
     extraSpecialArgs = { inherit inputs username host; };
     users.${username} = {
       imports = 
-        if (host == "desktop") then 
+        if (host == "whitenight") then 
           [ ./../home-manager/default.whitenight.nix ] 
         else [ ./../home-manager ];
 
