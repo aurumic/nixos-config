@@ -12,20 +12,23 @@
 
   };
 
-  outputs = { nixpkgs, home-manager, ... }@inputs: {
+  outputs = { nixpkgs, home-manager, ... } @inputs:
+  let
+    username = "utsurei";
+    system = "x86_64-linux";
+    pkgs = import nixpkgs {
+      inherit system;
+      config.allowUnfree = true;
+    };
+    lib = nixpkgs.lib;
+  in
+  {
     nixosConfigurations = {
-
       whitenight = nixpkgs.lib.nixosSystem {
-
-        system = "x86_64-linux";
-        specialArgs = { inherit inputs; };
-        modules = [
-          ./hosts/whitenight/configuration.nix
-          home-manager.nixosModules.home-manager
-        ];
-
+        inherit system;
+        specialArgs = { host = "whitenight"; inherit self inputs username; };
+        modules = [ ./hosts/whitenight ];
       };
-    
     };
   };
 }

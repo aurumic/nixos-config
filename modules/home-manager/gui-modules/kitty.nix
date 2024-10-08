@@ -1,18 +1,17 @@
-{ lib, config, pkgs, ... }:
+{ ... }:
 
 {
-  options = {
-    kitty.enable = lib.mkEnableOption "enable kitty";
-  };
+  programs.kitty = {
+    enable = true;
+    
+    themeFile = "GruvboxMaterialDarkMedium";
 
-  config = lib.mkIf config.kitty.enable {
-    programs.kitty = {
-      enable = true;
-      font = {
-        name = "Hasklug Nerd Font";
-      };
+    font = { name = "Hasklug Nerd Font"; };
+    font.size = 16;
 
-      shellIntegration.enableFishIntegration = true;
+    shellIntegration = {
+      enableFishIntegration = true;
+      mode = "no-rc";
     };
   };
 }

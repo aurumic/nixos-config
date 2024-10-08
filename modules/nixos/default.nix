@@ -2,8 +2,7 @@
 
 {
   imports = [
-    ./waydroid.nix
+    ./packages.nix
+    ./steam.nix
   ];
-
-  waydroid.enable = lib.mkDefault true;
 }

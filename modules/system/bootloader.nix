@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
   
 {
   boot.loader = {
@@ -10,4 +10,5 @@
       device = "nodev";
     };
   };
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 }

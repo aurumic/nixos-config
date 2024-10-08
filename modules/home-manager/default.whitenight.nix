@@ -2,9 +2,11 @@
 
 {
   imports = [
+    ./env.nix
     ./fonts.nix
     ./packages.nix
 
+    ./gui-modules/firefox.nix
     ./gui-modules/kitty.nix
     ./gui-modules/vscode.nix
 
