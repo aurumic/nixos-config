@@ -4,7 +4,7 @@
   programs.fish = {
     enable = true;
     interactiveShellInit = ''
-      set fish_greeting # Disable greeting
+      set fish_greeting
     '';
 
     plugins = [
@@ -18,7 +18,8 @@
       c = "clear";
       ls = "eza -a";
       ll = "eza -al";
-      rebuild = "nixos-rebuild switch --flake"; 
+
+      nix-conf = "code ~/.config/nixos"; 
     };
   };
 }

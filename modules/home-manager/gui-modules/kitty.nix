@@ -4,7 +4,7 @@
   programs.kitty = {
     enable = true;
     
-    themeFile = "GruvboxMaterialDarkMedium";
+    themeFile = "GruvboxMaterialDarkHard";
 
     font = { name = "Hasklug Nerd Font"; };
     font.size = 12;
