@@ -11,7 +11,6 @@
     ripgrep
 
     # gui
-    prismlauncher
     libreoffice
     telegram-desktop
     vlc
@@ -27,8 +26,6 @@
     bun
 
     # java
-    temurin-jre-bin-8
-    temurin-jre-bin-17
-    temurin-jre-bin-21
+    temurin-bin
   ];
 }
