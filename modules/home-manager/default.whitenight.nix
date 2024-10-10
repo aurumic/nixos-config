@@ -10,11 +10,11 @@
     ./gui-modules/kitty.nix
     ./gui-modules/vscode.nix
 
-    ./shell-modules/eza.nix
-    ./shell-modules/fish.nix
-    ./shell-modules/fzf.nix
-    ./shell-modules/git.nix
-    ./shell-modules/neovim.nix
-    ./shell-modules/thefuck.nix
+    ./cli-modules/eza.nix
+    ./cli-modules/fish.nix
+    ./cli-modules/fzf.nix
+    ./cli-modules/git.nix
+    ./cli-modules/neovim.nix
+    ./cli-modules/thefuck.nix
   ];
 }
