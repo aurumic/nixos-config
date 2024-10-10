@@ -4,6 +4,7 @@
   home.packages = with pkgs; [
     # cli
     ani-cli
+    btop
     neofetch
     devenv
     grc

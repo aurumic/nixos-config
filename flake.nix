@@ -8,9 +8,14 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    hyprland-contrib = {
+      url = "github:hyprwm/contrib";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { nixpkgs, self, ... } @inputs:
+  outputs = { self, nixpkgs, ... }@inputs:
   let
     username = "utsurei";
     system = "x86_64-linux";
@@ -28,5 +33,7 @@
         modules = [ ./hosts/whitenight ];
       };
     };
+
+    formatter.${system} = nixpkgs.legacyPackages.${system}.nixfmt-rfc-style;
   };
 }
