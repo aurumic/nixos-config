@@ -30,15 +30,14 @@
 
   gtk = {
     enable = true;
-    font = { name = "Inter"; size = 12; };
+    font = { name = "Inter"; size = 10; };
 
     theme = {
-      name = "Gruvbox-Dark-B-LB";
+      name = "Gruvbox-Yellow-Dark";
       package = pkgs.gruvbox-gtk-theme.override {
         colorVariants = [ "dark" ];
-        themeVariants = [ "all" ];
-        tweakVariants = [ "outline" ];
-        iconVariants = [ "dark" ];
+        themeVariants = [ "yellow" ];
+        tweakVariants = [ "macos" ];
       };
     };
 
@@ -48,18 +47,19 @@
     };
 
     cursorTheme = {
-      name = "Bibata-Modern-Ice";
-      package = pkgs.afterglow-cursors-recolored.override {
-        themeVariants = [ "Gruvbox" ];
-        gruvboxColorVariants = [ "Mojas84" ];
-      };
+      name = "Afterglow-Recolored-Gruvbox-Black";
+      package = pkgs.afterglow-cursors-recolored;
+      # .override {
+      #   themeVariants = [ "Gruvbox" ];
+      #   gruvboxColorVariants = [ "Black" ];
+      # };
       size = 24;
     };
   };
   
   home.pointerCursor = {
-    name = "Bibata-Modern-Ice";
-    package = pkgs.bibata-cursors;
+    name = "Afterglow-Recolored-Gruvbox-Black";
+    package = pkgs.afterglow-cursors-recolored;
     size = 24;
   };
 }

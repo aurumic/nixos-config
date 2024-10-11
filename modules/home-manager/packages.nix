@@ -2,6 +2,8 @@
 
 {
   home.packages = with pkgs; [
+    swaynotificationcenter
+    
     # cli
     ani-cli
     btop
