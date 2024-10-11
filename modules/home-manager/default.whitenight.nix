@@ -3,7 +3,7 @@
 {
   imports = [
     ./env.nix
-    ./fonts.nix
+    ./gtk.nix
     ./packages.nix
 
     ./gui-modules/firefox.nix

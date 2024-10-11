@@ -1,7 +1,7 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
-  nix.settings = {
-    
-  };
+  imports = [
+    ./hyprland.nix
+  ];
 }
