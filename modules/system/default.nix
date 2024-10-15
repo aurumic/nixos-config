@@ -10,6 +10,7 @@
     ./services.nix
     ./system.nix
     ./users.nix
+    ./wayland.nix
     ./xserver.nix
   ];
 }

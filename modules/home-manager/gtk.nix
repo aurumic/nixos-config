@@ -46,15 +46,11 @@
       package = pkgs.papirus-icon-theme;
     };
 
-    cursorTheme = {
-      name = "Afterglow-Recolored-Gruvbox-Black";
-      package = pkgs.afterglow-cursors-recolored;
-      # .override {
-      #   themeVariants = [ "Gruvbox" ];
-      #   gruvboxColorVariants = [ "Black" ];
-      # };
-      size = 24;
-    };
+    # cursorTheme = {
+    #   name = "Afterglow-Recolored-Gruvbox-Black";
+    #   package = pkgs.afterglow-cursors-recolored;
+    #   size = 24;
+    # };
   };
   
   home.pointerCursor = {

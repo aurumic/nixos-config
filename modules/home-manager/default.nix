@@ -2,6 +2,8 @@
 
 {
   imports = [
+    ./hyprland
+
     # general modules
     ./fonts.nix
     ./packages.nix
