@@ -5,6 +5,7 @@
     settings = {
       exec-once = [
         "swaync &"
+        "hyprlock"
       ]
     };
   };
