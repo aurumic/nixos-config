@@ -28,9 +28,16 @@
     };
   };
 
+  home.pointerCursor = {
+    gtk.enable = true;
+    name = "Afterglow-Recolored-Gruvbox-Black";
+    package = pkgs.afterglow-cursors-recolored;
+    size = 24;
+  };
+
   gtk = {
     enable = true;
-    font = { name = "Inter"; size = 10; };
+    font = { name = "Inter"; size = 12; };
 
     theme = {
       name = "Gruvbox-Yellow-Dark";
@@ -51,11 +58,5 @@
     #   package = pkgs.afterglow-cursors-recolored;
     #   size = 24;
     # };
-  };
-  
-  home.pointerCursor = {
-    name = "Afterglow-Recolored-Gruvbox-Black";
-    package = pkgs.afterglow-cursors-recolored;
-    size = 24;
   };
 }

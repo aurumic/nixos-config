@@ -4,6 +4,8 @@
   home.packages = with pkgs; [
     swww
     swaybg
+    hyprpicker
+    hyprpaper
     inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
     grim
     slurp
@@ -14,9 +16,6 @@
 
   wayland.windowManager.hyprland = {
     enable = true;
-    xwayland = {
-      enable = true;
-    };
     # enableNvidiaPatches = false;
     systemd.enable = true;
   };
