@@ -13,6 +13,9 @@
     grc
     binsider
     ripgrep
+    sl
+    pipes
+    tty-clock
 
     # gui
     libreoffice

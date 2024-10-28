@@ -5,8 +5,8 @@
     ./hyprland
 
     # general modules
-    ./fonts.nix
     ./packages.nix
+    ./gtk.nix
 
     # gui modules
     ./gui-modules/kitty.nix

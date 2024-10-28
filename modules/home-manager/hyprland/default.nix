@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ./ags
+    ./waybar
     ./config.nix
     ./hyprland.nix
     ./hyprlock.nix

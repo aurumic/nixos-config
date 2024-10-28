@@ -9,6 +9,7 @@
     ./gui-modules/firefox.nix
     ./gui-modules/kitty.nix
     ./gui-modules/prismlauncher.nix
+    ./gui-modules/rofi.nix
     ./gui-modules/vscode.nix
 
     ./cli-modules/eza.nix
