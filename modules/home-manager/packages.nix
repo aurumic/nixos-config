@@ -4,7 +4,11 @@
   home.packages = with pkgs; [
     swaynotificationcenter
     direnv
-    
+
+    # nix
+    nixfmt-rfc-style
+    nixd
+
     # cli
     ani-cli
     btop

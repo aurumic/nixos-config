@@ -1,8 +1,11 @@
-{ pkgs, ... }:
+{ inputs, ... }:
 
 {
   nix.settings = {
-    experimental-features = [ "nix-command" "flakes" ];
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
     auto-optimise-store = true;
     substituters = [ "https://hyprland.cachix.org" ];
     trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
@@ -22,6 +25,8 @@
     LC_TELEPHONE = "C.UTF-8";
     LC_TIME = "en_NZ.UTF-8";
   };
+
+  nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
 
   system.stateVersion = "24.05";
 }

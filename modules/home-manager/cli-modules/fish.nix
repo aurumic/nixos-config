@@ -8,10 +8,22 @@
     '';
 
     plugins = [
-      { name = "z"; src = pkgs.fishPlugins.z.src; }
-      { name = "fzf-fish"; src = pkgs.fishPlugins.fzf-fish.src; }
-      { name = "grc"; src = pkgs.fishPlugins.grc.src; }
-      { name = "tide"; src = pkgs.fishPlugins.tide.src; } 
+      {
+        name = "z";
+        src = pkgs.fishPlugins.z.src;
+      }
+      {
+        name = "fzf-fish";
+        src = pkgs.fishPlugins.fzf-fish.src;
+      }
+      {
+        name = "grc";
+        src = pkgs.fishPlugins.grc.src;
+      }
+      {
+        name = "tide";
+        src = pkgs.fishPlugins.tide.src;
+      }
     ];
 
     shellAliases = {
@@ -19,7 +31,7 @@
       ls = "eza -a";
       ll = "eza -al";
 
-      nix-conf = "code ~/.config/nixos"; 
+      nix-conf = "code ~/.config/nixos";
     };
   };
 }

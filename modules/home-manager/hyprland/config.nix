@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ host, ... }:
 
 {
   wayland.windowManager.hyprland = {
@@ -9,8 +9,9 @@
       ################
 
       # See https://wiki.hyprland.org/Configuring/Monitors/
-      monitor=",preferred,auto,auto";
-
+      monitor = (
+        if (host == "whitenight") then "eDP-1, 2880x1800@120, 0x0, 2" else ", preferred, auto, 1"
+      );
 
       ###################
       ### MY PROGRAMS ###
@@ -23,7 +24,6 @@
       # $fileManager = dolphin
       # $menu = wofi --show drun
 
-
       #################
       ### AUTOSTART ###
       #################
@@ -35,10 +35,9 @@
         "swaync &"
         "waybar &"
         "wl-clip-persist --clipboard both &"
-        "swww init && swww img $(find ~/wallpapers/ -maxdepth 1 -type f) --transition-type none &"
+        "swww init && swww img $(find ~/.config/nixos/wallpapers/ -maxdepth 1 -type f) --transition-type none &"
         "hyprlock"
       ];
-
 
       #############################
       ### ENVIRONMENT VARIABLES ###
@@ -48,7 +47,6 @@
 
       # env = XCURSOR_SIZE,24
       # env = HYPRCURSOR_SIZE,24
-
 
       #####################
       ### LOOK AND FEEL ###
@@ -84,7 +82,7 @@
           # size = 4;
           # passes = 2;
           brightness = 1;
-          contrast = 1.400;
+          contrast = 1.4;
           ignore_opacity = true;
           noise = 0;
           new_optimizations = true;
@@ -114,13 +112,13 @@
         animation = [
           "windowsIn,   0, 4, easeOutCubic,  popin 20%" # window open
           "windowsOut,  0, 4, fluent_decel,  popin 80%" # window close.
-          "windowsMove, 1, 2, fluent_decel,  slide"     # everything in between, moving, dragging, resizing.
+          "windowsMove, 1, 2, fluent_decel,  slide" # everything in between, moving, dragging, resizing.
 
           # Fade
-          "fadeIn,      1, 3,   fade_curve"   # fade in (open) -> layers and windows
-          "fadeOut,     1, 3,   fade_curve"   # fade out (close) -> layers and windows
-          "fadeSwitch,  0, 1,   easeOutCirc"  # fade on changing activewindow and its opacity
-          "fadeShadow,  1, 10,  easeOutCirc"  # fade on changing activewindow for shadows
+          "fadeIn,      1, 3,   fade_curve" # fade in (open) -> layers and windows
+          "fadeOut,     1, 3,   fade_curve" # fade out (close) -> layers and windows
+          "fadeSwitch,  0, 1,   easeOutCirc" # fade on changing activewindow and its opacity
+          "fadeShadow,  1, 10,  easeOutCirc" # fade on changing activewindow for shadows
           "fadeDim,     1, 4,   fluent_decel" # the easing of the dimming of inactive windows
           # "border,      1, 2.7, easeOutCirc"  # for animating the border's color switch speed
           # "borderangle, 1, 30,  fluent_decel, once" # for animating the border's gradient angle - styles: once (default), loop
@@ -146,7 +144,6 @@
         disable_hyprland_logo = false; # If true disables the random hyprland logo / anime girl background. :(
       };
 
-
       #############
       ### INPUT ###
       #############
@@ -154,14 +151,14 @@
       # https://wiki.hyprland.org/Configuring/Variables/#input
       input = {
         kb_layout = "us,ua";
-        kb_options ="grp:alt_caps_toggle"; 
+        kb_options = "grp:alt_caps_toggle";
         numlock_by_default = true;
         follow_mouse = 0;
         float_switch_override_focus = 0;
         mouse_refocus = 0;
         sensitivity = 0;
         touchpad = {
-          natural_scroll = true;
+          natural_scroll = false;
         };
       };
 
@@ -176,7 +173,6 @@
       #     name = epic-mouse-v1
       #     sensitivity = -0.5
       # }
-
 
       ###################
       ### KEYBINDINGS ###

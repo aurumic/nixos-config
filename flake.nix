@@ -16,25 +16,35 @@
     };
   };
 
-  outputs = { self, nixpkgs, ... }@inputs:
-  let
-    username = "utsurei";
-    system = "x86_64-linux";
-    pkgs = import nixpkgs {
-      inherit system;
-      config = { allowUnfree = true; };
-    };
-    lib = nixpkgs.lib;
-  in
-  {
-    nixosConfigurations = {
-      whitenight = nixpkgs.lib.nixosSystem {
+  outputs =
+    { self, nixpkgs, ... }@inputs:
+    let
+      username = "utsurei";
+      system = "x86_64-linux";
+      pkgs = import nixpkgs {
         inherit system;
-        specialArgs = { host = "whitenight"; inherit self pkgs inputs username; };
-        modules = [ ./hosts/whitenight ];
+        config = {
+          allowUnfree = true;
+        };
       };
-    };
+    in
+    {
+      nixosConfigurations = {
+        whitenight = nixpkgs.lib.nixosSystem {
+          inherit system;
+          specialArgs = {
+            host = "whitenight";
+            inherit
+              self
+              pkgs
+              inputs
+              username
+              ;
+          };
+          modules = [ ./hosts/whitenight ];
+        };
+      };
 
-    formatter.${system} = nixpkgs.legacyPackages.${system}.nixfmt-rfc-style;
-  };
+      formatter.${system} = nixpkgs.legacyPackages.${system}.nixfmt-rfc-style;
+    };
 }

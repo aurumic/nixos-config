@@ -10,13 +10,15 @@
     liberation_ttf
     fira-code
     fira-code-symbols
-    (nerdfonts.override { fonts = [
-      "FiraCode"
-      "Mononoki"
-      "Hasklig"
-      "ProggyClean"
-      "Terminus"
-    ]; })
+    (nerdfonts.override {
+      fonts = [
+        "FiraCode"
+        "Mononoki"
+        "Hasklig"
+        "ProggyClean"
+        "Terminus"
+      ];
+    })
   ];
 
   fonts.fontconfig = {
@@ -37,7 +39,10 @@
 
   gtk = {
     enable = true;
-    font = { name = "Inter"; size = 12; };
+    font = {
+      name = "Inter";
+      size = 12;
+    };
 
     theme = {
       name = "Gruvbox-Yellow-Dark";

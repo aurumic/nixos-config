@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 
 {
   programs.rofi.extraConfig = {
@@ -17,7 +17,7 @@
     display-drun = " Apps ";
     display-run = " Run ";
     display-window = " Window ";
-    /* display-Network: " Network"; */
+    # display-Network: " Network";
 
     disable-history = true;
     hide-scrollbar = true;

@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ inputs, ... }:
 
 {
   imports = [
@@ -7,7 +7,7 @@
     ./config.nix
     ./hyprland.nix
     # ./hyprlock.nix
-    
+
     inputs.hyprland.homeManagerModules.default
   ];
 }

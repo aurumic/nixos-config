@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 
 {
   programs.hyprlock = {
@@ -17,7 +17,7 @@
           path = "../../../wallpapers/gruv-abstract-maze.png";
           blur_passes = 3;
           blur_size = 5;
-          noise = 0.0117;
+          noise = 1.17e-2;
           contrast = 0.8916;
           brightness = 0.8172;
           vibrancy = 0.1696;

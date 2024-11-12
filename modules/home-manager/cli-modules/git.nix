@@ -1,4 +1,4 @@
-{ pkgs, ... }: 
+{ pkgs, ... }:
 
 {
   programs.git = {
@@ -7,7 +7,7 @@
     userName = "aurumic";
     userEmail = "zarlophoenix@gmail.com";
 
-    extraConfig = { 
+    extraConfig = {
       init.defaultBranch = "main";
       credential.helper = "store";
       diff.colorMoved = "default";
