@@ -31,11 +31,11 @@
 
       "custom/rofi-launcher" = {
         format = "";
-        on-click = "rofi -show drun"
+        on-click = "rofi -show drun";
       };
 
       "sway/language" = {
-        format = "{short} {flag}"
+        format = "{short} {flag}";
       };
     };
   };

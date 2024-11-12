@@ -26,7 +26,6 @@
     gcc
     gnumake
     valgrind
-    cope
 
     # python
     python3
