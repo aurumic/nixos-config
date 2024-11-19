@@ -34,7 +34,7 @@
     gtk.enable = true;
     name = "Afterglow-Recolored-Gruvbox-Black";
     package = pkgs.afterglow-cursors-recolored;
-    size = 24;
+    size = 36;
   };
 
   gtk = {

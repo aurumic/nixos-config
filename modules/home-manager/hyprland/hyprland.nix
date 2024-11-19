@@ -6,18 +6,24 @@
 
 {
   home.packages = with pkgs; [
+    wayland
+    
     swww
     swaybg
     hyprpicker
     hyprpaper
-    inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
+    
     grim
     slurp
+    inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
+    
     glib
     direnv
+
+    wl-clipboard
     wl-clip-persist
+
     wf-recorder
-    wayland
   ];
 
   systemd.user.targets.hyprland-session.Unit.Wants = [ "xdg-desktop-autostart.target" ];

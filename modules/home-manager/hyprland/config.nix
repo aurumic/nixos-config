@@ -1,4 +1,4 @@
-{ host, ... }:
+{ lib, host, ... }:
 
 {
   wayland.windowManager.hyprland = {
@@ -9,9 +9,12 @@
       ################
 
       # See https://wiki.hyprland.org/Configuring/Monitors/
-      monitor = (
-        if (host == "whitenight") then "eDP-1, 2880x1800@120, 0x0, 2" else ", preferred, auto, 1"
-      );
+      monitor = [
+        "eDP-1, 2880x1800@120, 0x0, 1"
+        "Unknown-1, disable"
+      ];
+
+      # lib.mkIf (host == "whitenight") 
 
       ###################
       ### MY PROGRAMS ###
@@ -33,6 +36,7 @@
 
       exec-once = [
         "swaync &"
+        "playerctld daemon &"
         "waybar &"
         "wl-clip-persist --clipboard both &"
         "swww init && swww img $(find ~/.config/nixos/wallpapers/ -maxdepth 1 -type f) --transition-type none &"
@@ -184,28 +188,30 @@
       bind = [
         "$mainMod, mouse_down, workspace, e+1"
         "$mainMod, mouse_up, workspace, e-1"
-        "$mainMod, S, togglespecialworkspace, magic"
-        "$mainMod SHIFT, S, movetoworkspace, special:magic"
 
         "ALT, Space, exec, rofi -show drun || pkill rofi"
         "CTRL ALT, T, exec, kitty"
+
+        # take screenshot with mainMod + SHIFT + S
+        
+        "$mainMod SHIFT, S, exec, grimblast copy area"
+
         "$mainMod, Q, killactive,"
         "$mainMod, F, fullscreen, 0"
-        # "$mainMod, M, exit,"
         "$mainMod, E, exec, $fileManager"
-        "$mainMod, V, togglefloating,"
-        "$mainMod, R, exec, $menu"
+        "$mainMod, D, togglefloating,"
+        # "$mainMod, R, exec, $menu"
         "$mainMod, P, pseudo," # dwindle
         "$mainMod, J, togglesplit," # dwindle
 
-        # Move focus with mainMod + arrow keys
+        # move focus with mainMod + arrow keys
 
         "$mainMod, left, movefocus, l"
         "$mainMod, right, movefocus, r"
         "$mainMod, up, movefocus, u"
         "$mainMod, down, movefocus, d"
 
-        # Switch workspaces with mainMod + [0-9]
+        # switch workspaces with mainMod + [0-9]
 
         "$mainMod, 1, workspace, 1"
         "$mainMod, 2, workspace, 2"
@@ -218,7 +224,7 @@
         "$mainMod, 9, workspace, 9"
         "$mainMod, 0, workspace, 10"
 
-        # Move active window to a workspace with mainMod + SHIFT + [0-9]
+        # move active window to a workspace with mainMod + SHIFT + [0-9]
 
         "$mainMod SHIFT, 1, movetoworkspace, 1"
         "$mainMod SHIFT, 2, movetoworkspace, 2"
@@ -242,8 +248,8 @@
         ",XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
         ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
         ",XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
-        ",XF86MonBrightnessUp, exec, brightnessctl s 10%+"
-        ",XF86MonBrightnessDown, exec, brightnessctl s 10%-"
+        ",XF86MonBrightnessUp, exec, brightnessctl s 5%+"
+        ",XF86MonBrightnessDown, exec, brightnessctl s 5%-"
       ];
 
       ##############################
@@ -253,14 +259,24 @@
       # See https://wiki.hyprland.org/Configuring/Window-Rules/ for more
       # See https://wiki.hyprland.org/Configuring/Workspace-Rules/ for workspace rules
 
-      # Example windowrule v1
-      # windowrule = float, ^(kitty)$
-
       # Example windowrule v2
       # windowrulev2 = float,class:^(kitty)$,title:^(kitty)$
 
+      windowrule = [
+        "noblur, ^(firefox)$" # disables blur for firefox
+
+        "opacity 1.0 override 0.5 override 0.8 override, ^(kitty)$" # set opacity to 1.0 active, 0.5 inactive and 0.8 fullscreen for kitty
+        "rounding 10, ^(kitty)$" # set rounding to 10 for kitty
+      ];
+
       # Ignore maximize requests from apps. You'll probably like this.
-      windowrulev2 = "suppressevent maximize, class:.*";
+      windowrulev2 = [
+        "suppressevent maximize, class:.*" # ignore maximise requests from apps :)
+
+        "float, class:^(org.pulseaudio.pavucontrol)$, title:^(Volume Control)$"
+
+        "opacity 0.3 override, class:(kitty), title:(kitty)"
+      ];
 
       # Fix some dragging issues with XWayland
       # windowrulev2 = "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0";

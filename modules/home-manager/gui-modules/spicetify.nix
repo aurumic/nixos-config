@@ -9,19 +9,28 @@
   enable = true;
 
   enabledExtensions = with spicePkgs.extensions; [
+    fullAppDisplay
     popupLyrics
+    shuffle
+    trashbin
+
+    powerBar
     songStats
-    adblock
+    betterGenres
     hidePodcasts
-    shuffle # shuffle+ (special characters are sanitized out of extension names)
+    savePlaylists
+    playNext
+    beautifulLyrics
     oneko
   ];
+
   enabledCustomApps = with spicePkgs.apps; [
     newReleases
     lyricsPlus
     ncsVisualizer
   ];
 
-  theme = spicePkgs.themes.onepunch;
+  theme = spicePkgs.themes.text;
+  colorScheme = "gruvbox";
   };
 }

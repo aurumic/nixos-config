@@ -5,26 +5,31 @@
     swaynotificationcenter
     direnv
 
-    # nix
-    nixfmt-rfc-style
-    nixd
-
     # cli
     ani-cli
+    pavucontrol
+    brightnessctl
+    playerctl
     btop
     neofetch
     devenv
     grc
     binsider
     ripgrep
-    sl
+    cowsay # self explanatory
+    sl # funny train
     pipes
     tty-clock
 
     # gui
     libreoffice
+    dolphin
     telegram-desktop
     vlc
+
+    # nix
+    nixfmt-rfc-style # formatter
+    nixd # language server
 
     # c/c++
     gcc
